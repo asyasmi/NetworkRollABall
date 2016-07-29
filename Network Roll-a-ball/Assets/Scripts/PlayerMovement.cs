@@ -10,6 +10,7 @@ public class PlayerMovement : NetworkBehaviour {
 //	private bool isLocalPlayerAuthority = false;
 	private NetworkInstanceId ownerNetID; 
 	public ParticleSystem explosion;
+	public GameObject pickup;
 
 	void Start (){
 		rb = GetComponent<Rigidbody> ();
@@ -53,6 +54,9 @@ public class PlayerMovement : NetworkBehaviour {
 				var Explosion = Instantiate (explosion, other.transform.position, other.transform.rotation);
 				Destroy (other.gameObject, 2.0f);
 				Destroy (Explosion, 2.0f);
+
+				var PickUp = Instantiate (pickup, other.transform.position, other.transform.rotation);
+
 			} else {
 				return;
 			}
