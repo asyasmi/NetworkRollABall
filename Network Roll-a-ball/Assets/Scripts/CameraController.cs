@@ -12,11 +12,12 @@ public class CameraController : MonoBehaviour {
 		//cameraPos = transform.position;
 	}
 	void Update(){
-		player = GameObject.Find ("Sphere(Clone)");
-		if (player != null && !isPlayerFound) {
-			isPlayerFound = true; 
-			offset = transform.position - player.transform.position;
-		} 
+		//if (GameObject.FindGameObjectWithTag ("Player")){
+			player = GameObject.FindGameObjectWithTag ("Player");
+			if (player != null && !isPlayerFound) {
+				isPlayerFound = true; 
+				offset = transform.position - player.transform.position;
+			} 
 		/*else {
 			transform.position = cameraPos;
 			isPlayerFound = false;
